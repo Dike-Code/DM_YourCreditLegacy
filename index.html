@@ -3335,18 +3335,15 @@
 									free guide immediately — plus a follow-up
 									from our team to answer any questions.
 								</p>
-								<form
-									class="lf-form"
-									id="leadForm"
-									data-ml-form
+								<form class="lf-form" id="leadForm">
+									<!-- data-ml-form
 									data-ml-account-id="2342537"
 									data-ml-form-id="190211927912219926"
-									data-ml-group-id="190211964035662972"
-								>
+									data-ml-group-id="190211964035662972" -->
 									<!-- Honeypot anti-spam -->
 									<input
 										type="text"
-										name="ml_field_honeypot"
+										name="_gotcha"
 										style="display: none"
 										tabindex="-1"
 										autocomplete="off"
@@ -4333,79 +4330,67 @@
 			const barChart = document.querySelector(".bar-chart");
 			if (barChart) barObs.observe(barChart);
 
-			// MailerLite lead form handler
+			// Formspree lead form handler
 			(function () {
 				var form = document.getElementById("leadForm");
 				if (!form) return;
-				form.addEventListener("submit", function (e) {
+
+				form.addEventListener("submit", async function (e) {
 					e.preventDefault();
+
 					var btn = form.querySelector(".lf-submit");
 					btn.disabled = true;
 					btn.textContent = "Sending...";
 
-					var accountId = form.dataset.mlAccountId;
-					var formId = form.dataset.mlFormId;
-					var groupId = form.dataset.mlGroupId;
+					try {
+						const response = await fetch(
+							"https://formspree.io/f/mnjywdwn",
+							{
+								method: "POST",
+								headers: {
+									"Content-Type": "application/json",
+									Accept: "application/json",
+								},
+								body: JSON.stringify({
+									name: document.getElementById("lf-name")
+										.value,
+									email: document.getElementById("lf-email")
+										.value,
+									phone: document.getElementById("lf-phone")
+										.value,
+									credit_score:
+										document.getElementById("lf-score")
+											.value,
+								}),
+							},
+						);
 
-					// Build subscriber payload
-					var data = {
-						fields: {
-							name: document.getElementById("lf-name").value,
-							email: document.getElementById("lf-email").value,
-							phone: document.getElementById("lf-phone").value,
-							credit_score:
-								document.getElementById("lf-score").value,
-						},
-						groups: [groupId],
-						resubscribe: true,
-					};
+						if (response.ok) {
+							document.getElementById(
+								"formContent",
+							).style.display = "none";
+							document.getElementById(
+								"formSuccess",
+							).style.display = "block";
 
-					// Submit via MailerLite JSONP
-					var cbName = "ml_cb_" + Date.now();
-					window[cbName] = function (response) {
-						delete window[cbName];
-						document.head.removeChild(script);
-						// Show success & trigger PDF download regardless of response
-						document.getElementById("formContent").style.display =
-							"none";
-						document.getElementById("formSuccess").style.display =
-							"block";
-						var a = document.createElement("a");
-						a.href = "credit_repair_guide.pdf";
-						a.download =
-							"YourCreditLegacy-CreditLegacyPlaybook.pdf";
-						document.body.appendChild(a);
-						a.click();
-						document.body.removeChild(a);
-					};
+							var a = document.createElement("a");
+							a.href = "credit_repair_guide.pdf";
+							a.download =
+								"YourCreditLegacy-CreditLegacyPlaybook.pdf";
+							document.body.appendChild(a);
+							a.click();
+							document.body.removeChild(a);
+						} else {
+							throw new Error("Submission failed");
+						}
+					} catch (err) {
+						alert(
+							"There was a problem submitting the form. Please try again.",
+						);
 
-					var payload = encodeURIComponent(JSON.stringify(data));
-					var script = document.createElement("script");
-					script.src =
-						"https://assets.mailerlite.com/jsonp/" +
-						accountId +
-						"/forms/" +
-						formId +
-						"/subscribe?callback=" +
-						cbName +
-						"&data=" +
-						payload;
-					script.onerror = function () {
-						delete window[cbName];
-						// Still show success + download on error — don't block the user
-						document.getElementById("formContent").style.display =
-							"none";
-						document.getElementById("formSuccess").style.display =
-							"block";
-						var a = document.createElement("a");
-						a.href = "credit_repair_guide.pdf";
-						a.download =
-							"YourCreditLegacy-CreditLegacyPlaybook.pdf";
-						document.body.appendChild(a);
-						a.click();
-						document.body.removeChild(a);
-					};
-					document.head.appendChild(script);
+						btn.disabled = false;
+						btn.textContent = "Send Me the Free Guide";
+					}
 				});
 			})();
 		</script>
