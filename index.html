@@ -3338,13 +3338,12 @@
 								<form
 									class="lf-form"
 									id="leadForm"
-									action="https://formspree.io/f/mnjywdwn"
-									method="POST"
-								>
-									<!-- data-ml-form
+									data-ml-form
 									data-ml-account-id="2342537"
 									data-ml-form-id="190211927912219926"
-									data-ml-group-id="190211964035662972" -->
+									data-ml-group-id="190211964035662972"
+									novalidate
+								>
 									<!-- Honeypot anti-spam -->
 									<input
 										type="text"
@@ -4336,7 +4335,7 @@
 			if (barChart) barObs.observe(barChart);
 
 			// MailerLite lead form handler
-			<!-- (function () {
+			(function () {
 				var form = document.getElementById("leadForm");
 				if (!form) return;
 				form.addEventListener("submit", function (e) {
@@ -4360,10 +4359,10 @@
 						},
 						groups: [groupId],
 						resubscribe: true,
-					}; -->
+					};
 
 					// Submit via MailerLite JSONP
-					<!-- var cbName = "ml_cb_" + Date.now();
+					var cbName = "ml_cb_" + Date.now();
 					window[cbName] = function (response) {
 						delete window[cbName];
 						document.head.removeChild(script);
@@ -4407,7 +4406,7 @@
 						a.click();
 						document.body.removeChild(a);
 					};
-					document.head.appendChild(script); -->
+					document.head.appendChild(script);
 				});
 			})();
 		</script>
