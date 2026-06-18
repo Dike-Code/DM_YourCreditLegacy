@@ -1,4 +1,5 @@
 # Your Credit Legacy — MailerLite Setup Guide
+
 ## Lead Magnet Flow + 5-Email Nurture Sequence
 
 This guide walks you through wiring the "Free Credit Legacy Playbook" lead-magnet form on `index.html` to your MailerLite account so new subscribers automatically receive the PDF and enter a 5-email nurture sequence.
@@ -9,12 +10,12 @@ This guide walks you through wiring the "Free Credit Legacy Playbook" lead-magne
 
 ## 1. Create Your MailerLite Account
 
-1. Go to [mailerlite.com](https://www.mailerlite.com) and sign up using **info@yourcreditlegacy.com**
+1. Go to [mailerlite.com](https://www.mailerlite.com) and sign up using **inquiries@yourcreditlegacy.com**
 2. Verify your domain in **Settings → Domains** — required so your emails land in inboxes, not spam
 3. Complete your sender details:
-   - **From name:** Your Credit Legacy
-   - **From email:** info@yourcreditlegacy.com
-   - **Reply-to:** info@yourcreditlegacy.com
+    - **From name:** Your Credit Legacy
+    - **From email:** inquiries@yourcreditlegacy.com
+    - **Reply-to:** inquiries@yourcreditlegacy.com
 4. Under **Settings → Domains**, add the SPF, DKIM, and DMARC records to your Hostinger DNS — MailerLite will show you exactly what to add
 
 ---
@@ -44,11 +45,11 @@ You need a custom field to store the credit score range each lead submits.
 2. Name: **Credit Playbook — Free Guide Download**
 3. Assign to group: **Credit Playbook Leads**
 4. Add these fields (names must match exactly):
-   - `email` — required
-   - `name` — built-in
-   - `phone` — built-in
-   - `credit_score` — the custom field you created in Step 2
-5. Set success behavior to: *Show success message* (the site handles its own UI)
+    - `email` — required
+    - `name` — built-in
+    - `phone` — built-in
+    - `credit_score` — the custom field you created in Step 2
+5. Set success behavior to: _Show success message_ (the site handles its own UI)
 6. Save. From the embed code screen, copy:
 
 ```
@@ -56,6 +57,7 @@ https://assets.mailerlite.com/jsonp/ACCOUNT_ID/forms/FORM_ID/subscribe
 ```
 
 You need:
+
 - **Account ID** — the number after `/jsonp/`
 - **Form ID** — the number after `/forms/`
 
@@ -66,15 +68,19 @@ You need:
 Open `index.html`. Around line 780, find the form tag:
 
 ```html
-<form class="lf-form" id="leadForm"
-      data-ml-form
-      data-ml-account-id="REPLACE_WITH_ML_ACCOUNT_ID"
-      data-ml-form-id="REPLACE_WITH_ML_FORM_ID"
-      data-ml-group-id="REPLACE_WITH_ML_GROUP_ID"
-      novalidate>
+<form
+	class="lf-form"
+	id="leadForm"
+	data-ml-form
+	data-ml-account-id="REPLACE_WITH_ML_ACCOUNT_ID"
+	data-ml-form-id="REPLACE_WITH_ML_FORM_ID"
+	data-ml-group-id="REPLACE_WITH_ML_GROUP_ID"
+	novalidate
+></form>
 ```
 
 Replace:
+
 - `REPLACE_WITH_ML_ACCOUNT_ID` → your Account ID
 - `REPLACE_WITH_ML_FORM_ID` → your Form ID
 - `REPLACE_WITH_ML_GROUP_ID` → your Group ID
@@ -89,7 +95,7 @@ This sends the Playbook the instant someone subscribes.
 
 1. Go to **Automations → Create automation**
 2. Name: **Credit Playbook — Nurture Sequence**
-3. **Trigger:** *When a subscriber joins a group* → **Credit Playbook Leads**
+3. **Trigger:** _When a subscriber joins a group_ → **Credit Playbook Leads**
 4. Add step: **Email** (send immediately — 0 minute delay)
 
 ### Email 1 — Instant Delivery
@@ -121,7 +127,7 @@ If you have any questions as you read through it, just reply to this email. We r
 Talk soon,
 
 Your Credit Legacy Team
-940-220-0760 | info@yourcreditlegacy.com
+940-220-0760 | inquiries@yourcreditlegacy.com
 yourcreditlegacy.com
 ```
 
@@ -209,7 +215,7 @@ you downloaded is step one. Step two is letting us handle it for you.
 → Apply now — it's free to start: https://signup.yourcreditlegacy.com/
 
 Your Credit Legacy Team
-940-220-0760 | info@yourcreditlegacy.com
+940-220-0760 | inquiries@yourcreditlegacy.com
 ```
 
 ---
@@ -289,7 +295,7 @@ business funding, or just a free 20-minute call — we're here.
 → Get started: https://pulse.disputeprocess.com/jsp/custom_form.jsp?tab_id=N0pOZWtMN1QySTNrelRXd0VnK2JVZz09&cust_type=2&company_id=MnJnNllMZUk5T2hSZy8wMmlwdzdUQT09&isLinkFromIframe=1&redirect_url=
 
 Your Credit Legacy Team
-940-220-0760 | info@yourcreditlegacy.com
+940-220-0760 | inquiries@yourcreditlegacy.com
 yourcreditlegacy.com
 ```
 
@@ -298,6 +304,7 @@ yourcreditlegacy.com
 ## 8. Activate the Automation
 
 Once all 5 emails are set up:
+
 1. Review each email one more time
 2. Click **Activate** on the automation
 3. It will now trigger automatically every time someone fills in the form on the site
@@ -319,28 +326,31 @@ Once all 5 emails are set up:
 
 ## 10. Sequence Summary
 
-| # | Day | Subject | Goal |
-|---|-----|---------|------|
-| 1 | 0   | Your Credit Legacy Playbook is here | Deliver PDF immediately |
-| 2 | 3   | Why your credit score is lower than it should be | Educate + soft CTA |
-| 3 | 7   | From 541 to 718 in 87 days | Social proof + apply CTA |
-| 4 | 14  | Your credit score is blocking more than you think | Business funding upsell |
-| 5 | 21  | One more thing we want you to have | SmartCredit + final CTA |
+| #   | Day | Subject                                           | Goal                     |
+| --- | --- | ------------------------------------------------- | ------------------------ |
+| 1   | 0   | Your Credit Legacy Playbook is here               | Deliver PDF immediately  |
+| 2   | 3   | Why your credit score is lower than it should be  | Educate + soft CTA       |
+| 3   | 7   | From 541 to 718 in 87 days                        | Social proof + apply CTA |
+| 4   | 14  | Your credit score is blocking more than you think | Business funding upsell  |
+| 5   | 21  | One more thing we want you to have                | SmartCredit + final CTA  |
 
 ---
 
 ## 11. Troubleshooting
 
 **Form submits but nothing appears in MailerLite:**
+
 - Confirm all three IDs (Account, Form, Group) are correct in `index.html`
 - Open browser DevTools → Console — look for a CORS or 404 error from `assets.mailerlite.com`
 - Make sure the form is **Published** in MailerLite (not draft)
 
 **PDF delivery email going to spam:**
+
 - Complete domain verification (SPF, DKIM, DMARC) in MailerLite Settings → Domains
 - Hostinger DNS usually takes 15–30 minutes to propagate
 
 **Subscribers come in without name/phone:**
+
 - Confirm `name` and `phone` are enabled fields on the form inside MailerLite (not hidden)
 
 ---
@@ -357,6 +367,6 @@ Once all 5 emails are set up:
 
 ---
 
-Questions? Reach out at info@yourcreditlegacy.com or call 940-220-0760.
+Questions? Reach out at inquiries@yourcreditlegacy.com or call 940-220-0760.
 
 — Your Credit Legacy
