@@ -10,12 +10,12 @@ This guide walks you through wiring the "Free Credit Legacy Playbook" lead-magne
 
 ## 1. Create Your MailerLite Account
 
-1. Go to [mailerlite.com](https://www.mailerlite.com) and sign up using **inquiries@yourcreditlegacy.com**
+1. Go to [mailerlite.com](https://www.mailerlite.com) and sign up using **daniel@yourcreditlegacy.com**
 2. Verify your domain in **Settings → Domains** — required so your emails land in inboxes, not spam
 3. Complete your sender details:
     - **From name:** Your Credit Legacy
-    - **From email:** inquiries@yourcreditlegacy.com
-    - **Reply-to:** inquiries@yourcreditlegacy.com
+    - **From email:** daniel@yourcreditlegacy.com
+    - **Reply-to:** daniel@yourcreditlegacy.com
 4. Under **Settings → Domains**, add the SPF, DKIM, and DMARC records to your Hostinger DNS — MailerLite will show you exactly what to add
 
 ---
@@ -127,7 +127,7 @@ If you have any questions as you read through it, just reply to this email. We r
 Talk soon,
 
 Your Credit Legacy Team
-940-220-0760 | inquiries@yourcreditlegacy.com
+940-220-0760 | daniel@yourcreditlegacy.com
 yourcreditlegacy.com
 ```
 
@@ -215,7 +215,7 @@ you downloaded is step one. Step two is letting us handle it for you.
 → Apply now — it's free to start: https://signup.yourcreditlegacy.com/
 
 Your Credit Legacy Team
-940-220-0760 | inquiries@yourcreditlegacy.com
+940-220-0760 | daniel@yourcreditlegacy.com
 ```
 
 ---
@@ -295,7 +295,7 @@ business funding, or just a free 20-minute call — we're here.
 → Get started: https://pulse.disputeprocess.com/jsp/custom_form.jsp?tab_id=N0pOZWtMN1QySTNrelRXd0VnK2JVZz09&cust_type=2&company_id=MnJnNllMZUk5T2hSZy8wMmlwdzdUQT09&isLinkFromIframe=1&redirect_url=
 
 Your Credit Legacy Team
-940-220-0760 | inquiries@yourcreditlegacy.com
+940-220-0760 | daniel@yourcreditlegacy.com
 yourcreditlegacy.com
 ```
 
@@ -367,6 +367,6 @@ Once all 5 emails are set up:
 
 ---
 
-Questions? Reach out at inquiries@yourcreditlegacy.com or call 940-220-0760.
+Questions? Reach out at daniel@yourcreditlegacy.com or call 940-220-0760.
 
 — Your Credit Legacy
